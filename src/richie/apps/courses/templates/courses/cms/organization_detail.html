@@ -30,18 +30,75 @@
             {# If the current page is a draft, show draft courses with a class annotation for styling #}
             {% if current_page.publisher_is_draft %}
               {% if course.check_publication is True %}
-                <li class="organization-detail__content__courses__item">
-                  {{ course.public_extension.extended_object.get_title }}
+                <li class="course-child">
+                  <a class="course-child__body" href="{{ course.public_extension.extended_object.get_absolute_url }}">
+                    <div class="course-child__body__top">
+                      <div class="course-child__image">
+                        {% show_placeholder "course_teaser" course.public_extension.extended_object %}
+                      </div>
+                    </div>
+                    <div class="course-child__body__middle">
+                        <div class="course-child__body__org">
+                            {{ course.public_extension.extended_object.course.organization_main.code }}
+                        </div>
+                        <div class="course-child__body__title">
+                            {{ course.public_extension.extended_object.get_title }}
+                        </div>
+                    </div>
+                    <div class="course-child__body__bottom">
+                        <div class="course-child__date">
+                          {% trans "Start" %}: {{ course.public_extension.extended_object.course.course_runs.last.start }}
+                        </div>
+                    </div>
+                  </a>
                 </li>
               {% else %}
-                <li class="organization-detail__content__courses__item organization-detail__content__courses__item--draft">
-                  {{ course.extended_object.get_title }}
+                <li class="course-child">
+                  <a class="course-child__body" href="{{ course.extended_object.get_absolute_url }}">
+                      <div class="course-child__body__top">
+                        <div class="course-child__image">
+                          {% show_placeholder "course_teaser" course.extended_object %}
+                        </div>
+                      </div>
+                      <div class="course-child__body__middle">
+                          <div class="course-child__body__org">
+                              {{ course.extended_object.course.organization_main.code }}
+                          </div>
+                          <div class="course-child__body__title">
+                              {{ course.extended_object.get_title }}
+                          </div>
+                      </div>
+                      <div class="course-child__body__bottom">
+                          <div class="course-child__date">
+                            {% trans "Start" %}: {{ course.extended_object.course.course_runs.last.start }}
+                          </div>
+                      </div>
+                  </a>
                 </li>
               {% endif %}
             {# If the current course page is the published version, show only the courses that are published #}
             {% elif course.check_publication is True %}
-              <li class="organization-detail__content__courses__item">
-                {{ course.extended_object.get_title }}
+              <li class="course-child">
+                <a class="course-child__body" href="{{ course.public_extension.extended_object.get_absolute_url }}">
+                  <div class="course-child__body__top">
+                    <div class="course-child__image">
+                      {% show_placeholder "course_teaser" course.public_extension.extended_object %}
+                    </div>
+                  </div>
+                  <div class="course-child__body__middle">
+                      <div class="course-child__body__org">
+                          {{ course.public_extension.extended_object.course.organization_main.code }}
+                      </div>
+                      <div class="course-child__body__title">
+                        {{ course.extended_object.get_title }}
+                      </div>
+                  </div>
+                  <div class="course-child__body__bottom">
+                      <div class="course-child__date">
+                        {% trans "Start" %}: {{ course.public_extension.extended_object.course.course_runs.last.start }}
+                      </div>
+                  </div>
+                </a>
               </li>
             {% endif %}
           {% empty %}
