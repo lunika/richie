@@ -39,7 +39,7 @@
                     </div>
                     <div class="course-child__body__middle">
                         <div class="course-child__body__org">
-                            {{ course.public_extension.extended_object.course.organization_main.code }}
+                            {{ course.public_extension.extended_object.course.organization_main.extended_object.get_title }}
                         </div>
                         <div class="course-child__body__title">
                             {{ course.public_extension.extended_object.get_title }}
@@ -47,7 +47,7 @@
                     </div>
                     <div class="course-child__body__bottom">
                         <div class="course-child__date">
-                          {% trans "Start" %}: {{ course.public_extension.extended_object.course.course_runs.last.start }}
+                          {% trans "Commence le" %}: {{ course.public_extension.extended_object.course.course_runs.last.start }}
                         </div>
                     </div>
                   </a>
@@ -62,7 +62,7 @@
                       </div>
                       <div class="course-child__body__middle">
                           <div class="course-child__body__org">
-                              {{ course.extended_object.course.organization_main.code }}
+                              {{ course.extended_object.course.organization_main.extended_object.get_title }}
                           </div>
                           <div class="course-child__body__title">
                               {{ course.extended_object.get_title }}
@@ -70,7 +70,7 @@
                       </div>
                       <div class="course-child__body__bottom">
                           <div class="course-child__date">
-                            {% trans "Start" %}: {{ course.extended_object.course.course_runs.last.start }}
+                            {% trans "Commence le" %}: {{ course.extended_object.course.course_runs.last.start }}
                           </div>
                       </div>
                   </a>
@@ -82,12 +82,12 @@
                 <a class="course-child__body" href="{{ course.public_extension.extended_object.get_absolute_url }}">
                   <div class="course-child__body__top">
                     <div class="course-child__image">
-                      {% show_placeholder "course_teaser" course.public_extension.extended_object %}
+                      {% show_placeholder "course_teaser" course.extended_object %}
                     </div>
                   </div>
                   <div class="course-child__body__middle">
                       <div class="course-child__body__org">
-                          {{ course.public_extension.extended_object.course.organization_main.code }}
+                          {{ course.extended_object.course.organization_main.extended_object.get_title }}
                       </div>
                       <div class="course-child__body__title">
                         {{ course.extended_object.get_title }}
@@ -95,7 +95,7 @@
                   </div>
                   <div class="course-child__body__bottom">
                       <div class="course-child__date">
-                        {% trans "Start" %}: {{ course.public_extension.extended_object.course.course_runs.last.start }}
+                        {% trans "Commence le" %}: {{ course.extended_object.course.course_runs.last.start }}
                       </div>
                   </div>
                 </a>
