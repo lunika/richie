@@ -38,65 +38,65 @@
                       </div>
                     </div>
                     <div class="course-child__body__middle">
-                        <div class="course-child__body__org">
-                            {{ course.public_extension.extended_object.course.organization_main.extended_object.get_title }}
-                        </div>
-                        <div class="course-child__body__title">
-                            {{ course.public_extension.extended_object.get_title }}
-                        </div>
+                      <div class="course-child__body__org">
+                        {{ course.public_extension.extended_object.course.organization_main.extended_object.get_title }}
+                      </div>
+                      <div class="course-child__body__title">
+                        {{ course.public_extension.extended_object.get_title }}
+                      </div>
                     </div>
                     <div class="course-child__body__bottom">
-                        <div class="course-child__date">
-                          {% trans "Commence le" %} {{ course.public_extension.extended_object.course.course_runs.last.start }}
-                        </div>
+                      <div class="course-child__date">
+                        {% trans "Commence le" %} {{ course.public_extension.extended_object.course.course_runs.last.start }}
+                      </div>
                     </div>
                   </a>
                 </li>
               {% else %}
                 <li class="course-child">
-                  <a class="course-child__body" href="{{ course.extended_object.get_absolute_url }}">
+                    <a class="course-child__body" href="{{ course.extended_object.get_absolute_url }}">
                       <div class="course-child__body__top">
                         <div class="course-child__image">
                           {% show_placeholder "course_teaser" course.extended_object %}
                         </div>
                       </div>
                       <div class="course-child__body__middle">
-                          <div class="course-child__body__org">
-                              {{ course.extended_object.course.organization_main.extended_object.get_title }}
-                          </div>
-                          <div class="course-child__body__title">
-                              {{ course.extended_object.get_title }}
-                          </div>
+                        <div class="course-child__body__org">
+                          {{ course.extended_object.course.organization_main.extended_object.get_title }}
+                        </div>
+                        <div class="course-child__body__title">
+                          {{ course.extended_object.get_title }}
+                        </div>
                       </div>
                       <div class="course-child__body__bottom">
-                          <div class="course-child__date">
-                            {% trans "Commence le" %} {{ course.extended_object.course.course_runs.last.start }}
-                          </div>
+                        <div class="course-child__date">
+                          {% trans "Commence le" %} {{ course.extended_object.course.course_runs.last.start }}
+                        </div>
                       </div>
-                  </a>
-                </li>
+                    </a>
+                  </li>
               {% endif %}
             {# If the current course page is the published version, show only the courses that are published #}
             {% elif course.check_publication is True %}
               <li class="course-child">
-                <a class="course-child__body" href="{{ course.public_extension.extended_object.get_absolute_url }}">
+                <a class="course-child__body" href="{{ course.extended_object.get_absolute_url }}">
                   <div class="course-child__body__top">
                     <div class="course-child__image">
                       {% show_placeholder "course_teaser" course.extended_object %}
                     </div>
                   </div>
                   <div class="course-child__body__middle">
-                      <div class="course-child__body__org">
-                          {{ course.extended_object.course.organization_main.extended_object.get_title }}
-                      </div>
-                      <div class="course-child__body__title">
-                        {{ course.extended_object.get_title }}
-                      </div>
+                    <div class="course-child__body__org">
+                      {{ course.extended_object.course.organization_main.extended_object.get_title }}
+                    </div>
+                    <div class="course-child__body__title">
+                      {{ course.extended_object.get_title }}
+                    </div>
                   </div>
                   <div class="course-child__body__bottom">
-                      <div class="course-child__date">
-                        {% trans "Commence le" %} {{ course.extended_object.course.course_runs.last.start }}
-                      </div>
+                    <div class="course-child__date">
+                      {% trans "Commence le" %} {{ course.extended_object.course.course_runs.last.start }}
+                    </div>
                   </div>
                 </a>
               </li>
